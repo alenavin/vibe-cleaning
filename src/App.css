@@ -30,6 +30,31 @@
   opacity: 0.85;
 }
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 32px auto;
+  color: rgb(144, 79, 142);
+  font-size: 14px;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #e0d0e0;
+  border-top-color: rgb(144, 79, 142);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .list {
   list-style: none;
   margin: 12px 0 0;

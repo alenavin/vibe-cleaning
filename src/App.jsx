@@ -15,6 +15,7 @@ export default function App() {
   const [items, setItems] = useState([]);
   const [input, setInput] = useState("");
   const [initialized, setInitialized] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [editingDescId, setEditingDescId] = useState(null);
   const [descInput, setDescInput] = useState("");
   const [sortDelayed, setSortDelayed] = useState(new Set());
@@ -37,6 +38,7 @@ export default function App() {
         setItems([]);
       }
       setInitialized(true);
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
@@ -106,7 +108,13 @@ export default function App() {
           {doneCount} / {items.length} done
         </span>
       </header>
-
+      пше
+      {loading && (
+        <div className="loading">
+          <div className="spinner" />
+          <span>смотрю где грязьненько</span>
+        </div>
+      )}
       <ul className="list" ref={listRef}>
         {sortedItems.map((item) => (
           <li
@@ -148,7 +156,6 @@ export default function App() {
           </li>
         ))}
       </ul>
-
       <div className="add-bar">
         <input
           type="text"
